@@ -6,7 +6,13 @@
                     <div class="form-group">
                         <label for="name">Название продукта</label>
                         <input type="text" class="form-control" id="name" placeholder="Название продукта"
-                            formControlName="name" />
+                            formControlName="name" 
+                            [ngClass]="{
+                                'error':
+                                purchForm.get('name')?.invalid &&
+                                purchForm.get('name')?.touched
+                              }"
+                            />
                         <small id="nameBottomLabel" class="form-text text-muted">Обязательное поле, длинной до 100
                             символов.</small>
                     </div>
@@ -15,7 +21,13 @@
                     <div class="form-group">
                         <label for="amount">Количество</label>
                         <input type="text" class="form-control" id="amount" placeholder="Количество продукта"
-                            formControlName="amount" />
+                            formControlName="amount"
+                            [ngClass]="{
+                                'error':
+                                purchForm.get('amount')?.invalid &&
+                                purchForm.get('amount')?.touched
+                              }"
+                             />
                         <small id="amountBottomLabel" class="form-text text-muted">Обязательное поле, длинной до 100
                             символов.</small>
                     </div>
