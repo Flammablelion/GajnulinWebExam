@@ -2,17 +2,10 @@
   "purchases": [
     {
       "name": "sdfsdfsdf",
-      "amount": "15",
+      "amount": "157",
       "status": "Не куплено",
       "bought": false,
       "id": 2
-    },
-    {
-      "name": "ghbdtn",
-      "amount": "15",
-      "status": "Не куплено",
-      "bought": false,
-      "id": 3
     },
     {
       "name": "тест тест",
@@ -24,8 +17,8 @@
     {
       "name": "ааааа",
       "amount": "2",
-      "status": "Куплено",
-      "bought": true,
+      "status": "Не куплено",
+      "bought": false,
       "id": 5
     },
     {
@@ -55,6 +48,13 @@
       "status": "Не куплено",
       "bought": false,
       "id": 9
+    },
+    {
+      "name": "jhgjjhg",
+      "amount": "56",
+      "status": "Не куплено",
+      "bought": false,
+      "id": 10
     }
   ]
 }

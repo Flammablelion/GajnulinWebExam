@@ -10,7 +10,7 @@ import { HttpDBService } from 'src/app/shared/services/http-db.service';
 })
 export class PurchasesComponent implements OnInit {
 
-  constructor(private HttpDBService: HttpDBService, private router: Router) { }
+  constructor(private httpDBService: HttpDBService, private router: Router) { }
   purchases: Purchases[];
   purchase: Purchases;
 
@@ -27,7 +27,7 @@ export class PurchasesComponent implements OnInit {
 
   async getPurchases() {
     try {
-      this.purchases = await this.HttpDBService.getPurchases();
+      this.purchases = await this.httpDBService.getPurchases();
     } catch (err) {
       console.error(err);
     }
@@ -36,7 +36,7 @@ export class PurchasesComponent implements OnInit {
   }
   async onDeletePurchase(index: number) {
     try {
-      await this.HttpDBService.deletePurchases(index);
+      await this.httpDBService.deletePurchases(index);
     } catch (err) {
       console.error(err);
     }
@@ -44,7 +44,7 @@ export class PurchasesComponent implements OnInit {
   }
   async changeStatus(index: number) {
     try {
-      this.purchase = await this.HttpDBService.getPurchase(index);
+      this.purchase = await this.httpDBService.getPurchase(index);
 
       if (this.purchase.status == "Не куплено") {
         let purchase: Purchases = {
@@ -53,7 +53,7 @@ export class PurchasesComponent implements OnInit {
           status: "Куплено",
           bought: true
         }
-        await this.HttpDBService.editPurchases(index,purchase)
+        await this.httpDBService.editPurchases(index,purchase)
       }
       else {
         let purchase: Purchases = {
@@ -62,7 +62,7 @@ export class PurchasesComponent implements OnInit {
           status: "Не куплено",
           bought: false
         }
-        await this.HttpDBService.editPurchases(index,purchase)
+        await this.httpDBService.editPurchases(index,purchase)
       }
       this.getPurchases();
     } catch (error) {

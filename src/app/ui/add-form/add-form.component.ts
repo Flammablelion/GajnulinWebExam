@@ -12,7 +12,7 @@ import { HttpDBService } from 'src/app/shared/services/http-db.service';
 })
 export class AddFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private HttpDBService: HttpDBService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private fb: FormBuilder, private httpDBService: HttpDBService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   purchase: Purchases;
   purchases: Purchases[] = [];
@@ -32,7 +32,7 @@ export class AddFormComponent implements OnInit {
 
     if (this.id) {
       try {
-        this.purchase = await this.HttpDBService.getPurchase(this.id);
+        this.purchase = await this.httpDBService.getPurchase(this.id);
       } catch (error) {
         console.log(error);
         return;
@@ -56,7 +56,7 @@ export class AddFormComponent implements OnInit {
     if (this.id) {
       const purchase: Purchases = this.purchForm.value;
       try {
-        await this.HttpDBService.editPurchases(this.id, purchase);
+        await this.httpDBService.editPurchases(this.id, purchase);
         await this.getData();
         this.router.navigate(['/purchases']);
       } catch (error) {
@@ -69,7 +69,7 @@ export class AddFormComponent implements OnInit {
       purchase.status = "Не куплено";
       purchase.bought = false;
       try {
-        await this.HttpDBService.postPurchases(purchase);
+        await this.httpDBService.postPurchases(purchase);
         this.router.navigate(['/purchases']);
       } catch (err) {
         console.error(err);
@@ -78,7 +78,7 @@ export class AddFormComponent implements OnInit {
   }
   async onDeletePurchase() {
     try {
-        await this.HttpDBService.deletePurchases(this.id);
+        await this.httpDBService.deletePurchases(this.id);
         this.router.navigate(['/purchases']);
     } catch (err) {
       console.error(err);
@@ -87,7 +87,7 @@ export class AddFormComponent implements OnInit {
   }
   async getPurchases() {
     try {
-      this.purchases = await this.HttpDBService.getPurchases();
+      this.purchases = await this.httpDBService.getPurchases();
     } catch (err) {
       console.error(err);
     }
