@@ -31,8 +31,8 @@
     {
       "name": "бббббб",
       "amount": "2",
-      "status": "Не куплено",
-      "bought": false,
+      "status": "Куплено",
+      "bought": true,
       "id": 6
     },
     {
@@ -52,8 +52,8 @@
     {
       "name": "а",
       "amount": "1555555",
-      "status": "Куплено",
-      "bought": true,
+      "status": "Не куплено",
+      "bought": false,
       "id": 9
     }
   ]
